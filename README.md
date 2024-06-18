@@ -10,3 +10,9 @@
 - var declares a mutable variable (can be reassigned).
 - <b>val</b> is preferred over <b>var</b>.
 - <b> Compilers automatically infers types when not mentioned </b>
+
+# Expressions
+- We covered Basic expressions and operators.
+- 'if' statement in Scala is an expression.
+- 'CodeBlocks' in Scala are expression, the value of the box is the value of the last expression inside it.
+- In <b>Scala</b> we think everything in terms of expression.
