@@ -1,0 +1,19 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging D:\Scala\Scala-udm\target\scala-3.3.2\scala-udm_3-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains\scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains\scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains\scala\lectures[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains\scala\lectures[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains\scala\lectures\part1basics[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains\scala\lectures\part1basics[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains\scala\lectures\part1basics\ValVarTypes$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains\scala\lectures\part1basics\ValVarTypes$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains\scala\lectures\part1basics\ValVarTypes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains\scala\lectures\part1basics\ValVarTypes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org\jetbrains\scala\lectures\part1basics\ValVarTypes.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\Scala\Scala-udm\target\scala-3.3.2\classes\org\jetbrains\scala\lectures\part1basics\ValVarTypes.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
