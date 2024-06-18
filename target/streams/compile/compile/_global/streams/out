@@ -1,8 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: D:\Scala\Scala-udm\src\main\scala\lectures\part1basics\ValVarTypes.scala:21:24 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m21 |[0m    [33mval[0m [36maShort[0m: [35mShort[0m = [31m12323532[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                        ^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                        Found:    ([31m12323532[0m : Int)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                        Required: Short[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
