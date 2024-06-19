@@ -2,7 +2,7 @@ package org.jetbrains.scala.lectures.part1basics
 
 object Expressions {
   def main(args: Array[String]): Unit = {
-
+    
     // OPERATORS
     val x = 1 + 2
     // + - * / & | ^ << >> >>> (right shift with zero extension)

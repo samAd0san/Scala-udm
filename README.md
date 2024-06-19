@@ -16,3 +16,9 @@
 - 'if' statement in Scala is an expression.
 - 'CodeBlocks' in Scala are expression, the value of the box is the value of the last expression inside it.
 - In <b>Scala</b> we think everything in terms of expression.
+
+# Functions 
+- We should declare the parameter with types always.
+- If the return type is not mentioned, the compiler can infer the type. (only in non-recursive function).
+- since expressions are wrapped in braces '{}', we can use braces in functions.
+- If you want to use a while loop, use recursion (while loop is depreciated)
