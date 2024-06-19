@@ -6,7 +6,7 @@ object DefaultArgument extends App {
 
   def savePicture(format: String = "jpg", width: Int, height: Int): Unit = println("Saving the picture")
 
-  savePicture(800,200) // since we already specified the 'format', here it'll give error because the compiler is
+  // savePicture(800,200) // since we already specified the 'format', here it'll give error because the compiler is
   // thinking that the first argument is the replacement of the 'format' argument, not the width which we want to include.
 
   // To solve this issue there are two ways
