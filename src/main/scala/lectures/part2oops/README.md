@@ -12,3 +12,9 @@
 <br>
 <br>
 - <b>'this'</b> keyword refers to the parameter of the object (of the class),
+
+### Defining methods
+- ```def greet(): String = { ... }```
+
+### Calling methods
+- ```val bobSaysHi = bob.greet```

@@ -46,4 +46,97 @@ object OOBasics extends App{
 
   // This is the Auxiliary constructor object, where without any parameter we can print
   println(new Person().name) // Cassandra
+
+  /*
+  EXERCISES
+  1. Novel and a Writer
+
+  Create a Class named
+  Writer: first name, surname, year
+    - method full name
+
+  Create a class named
+  Novel: name, year of release, author
+  - authorAge
+  - isWrittenBy(author)
+  */
+
+  // Class Writer
+  class Writer(firstName: String, lastName: String, val year: Int) {
+    def fullName: String = firstName + " " + lastName
+  }
+
+  // Object of Writer Class
+  val author = new Writer("Charles", "Cook", 1831)
+  // Returning the full name of the author with its dob
+  println(author.fullName + " " + author.year) // Charles Cook 1831
+
+  // Class Novel
+  class Novel(name: String, year: Int, author: Writer) {
+    // method 1
+    // subtracting the year of publish of novel with the age of the author
+    def authorAge = year - author.year
+
+    // method 2
+    // def isWrittenBy = author.fullName // just returning the name of the author
+    def isWrittenBy(author: Writer) = author == this.author // It means the author of def isWritternBy(author) and class Novel(name..,year,, author) should match
+  }
+
+  // Object of Novel Class
+  val novel = new Novel("Great Expectations", 1874, author)
+  // println(novel.isWrittenBy)
+  // returning the age of the author
+  println(novel.authorAge) // 43
+
+
+  val imposter = new Writer("Charles","Cook",1831)
+  println(novel.isWrittenBy(author)) // true
+  // comparing the imposter == author, this 'author' is of object 'novel'
+  println(novel.isWrittenBy(imposter)) // false
+
+
+  /*
+    2. Counter class
+      - receives an int value
+      - method current count
+      - method to increment/decrement => new Counter
+      - overload inc/dec to N number of times
+   */
+  class Counter(count: Int = 0) {
+    def inc = {
+      // println("inc")
+      new Counter(count + 1) // immutability
+    }
+
+    def dec = {
+      // println("dec")
+      new Counter(count - 1)
+    }
+
+    def inc(n: Int): Counter = {
+      /* If n is less than or equal to 0, the method returns this, meaning it returns the current instance of the
+      Counter without making any changes. This serves as the stopping condition for the recursion. */
+      if(n <= 0) this
+      // implementing recursion here
+      else inc.inc(n-1) // If n is greater than 0, the method calls inc to create a new Counter instance with the count incremented by 1.
+      // It then recursively calls inc with the argument n-1. This reduces the value of n by 1 each time, ensuring that the method will eventually reach the base case.
+    }
+
+    def dec(n: Int): Counter = {
+      if(n <= 0) this
+      else dec.dec(n-1) // Using the dec method defined above
+    }
+
+    def print = println(count)
+  }
+
+  val count = new Counter
+  count.inc.print // 1
+  count.inc.inc.inc.print // 3
+
+  count.dec.print // -1
+  count.dec.dec.dec.print // -3
+
+  count.inc(10).print // 10
+  count.dec(10).print // -10
 }
