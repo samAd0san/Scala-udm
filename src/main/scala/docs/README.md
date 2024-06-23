@@ -30,3 +30,18 @@ object Main {
 ```
 
 <b>Usage:</b> Use this approach for more complex programs or when you need more control over the program’s execution, such as handling command-line arguments (args parameter) or managing program lifecycle explicitly.
+
+# Class composition with mixins
+- Class composition with mixins in Scala refers to a technique where a class can be constructed by combining multiple traits (which are similar to interfaces in other languages) with a base class.
+
+# Pattern Matching
+- Pattern matching is a mechanism for checking a value against a pattern. A successful match can also deconstruct a value into its constituent parts. It is a more powerful version of the switch statement in Java and it can likewise be used in place of a series of if/else statements.
+
+- ### basic syntax 
+```chatinput
+value match {
+  case pattern1 => result1
+  case pattern2 => result2
+  // other cases
+}
+```
