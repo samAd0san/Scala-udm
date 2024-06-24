@@ -1,4 +1,4 @@
-package docs
+package docs.day2
 
 object CaseClass extends App {
   /*

@@ -45,3 +45,9 @@ value match {
   // other cases
 }
 ```
+
+# Key Points About Singleton Objects
+<b>Single Instance:</b> Only one instance of a singleton object exists throughout your program. <br><br>
+<b>No Constructors:</b> Singleton objects do not have constructors as you cannot create them directly. <br><br>
+<b>Companion Objects:</b> When a singleton object shares the same name as a class, it's called a companion object. Companion objects and classes can access each other's private members. <br><br>
+<b>Utility Holder:</b> Singleton objects are often used to hold static methods and fields, similar to static members in Java.

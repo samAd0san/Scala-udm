@@ -1,4 +1,4 @@
-package docs
+package docs.day1
 
 object Tuples extends App{
   /*

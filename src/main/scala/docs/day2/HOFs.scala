@@ -1,4 +1,4 @@
-package docs
+package docs.day2
 
 object HOFs extends App {
 
@@ -19,10 +19,9 @@ object HOFs extends App {
   }
 
   val sum = (a: Int, b: Int) => a + b
-  val prod = (a: Int, b: Int) => a * b
 
   println(applyOperation(10,20,sum)) // 30
-  println(applyOperation(5,2,prod)) // 10
+  println(applyOperation(5,2,(a: Int, b: Int) => a * b)) // 10
 
   // Example 2
   val salaries = List(10_000.21,22_000.65,37_000.721)

@@ -1,4 +1,4 @@
-package docs
+package docs.day1
 
 object Basics extends App{
   // Functions
@@ -9,10 +9,10 @@ object Basics extends App{
   arrowFunction(10)
 
   val add = (a: Int, b: Int) => a + b
-  println(add(10,20))
+  println(add(10,20)) // 30
 
   val getAns = () => 21
-  println(getAns())
+  println(getAns()) // 21
 
   // Methods
   def add(a: Int, b: Int, c: Int): Int = a + b + c
@@ -121,6 +121,7 @@ object Basics extends App{
   }
 
   // A class extending 2 traits i.e trait swimming and trait flying
+  // Class composition with Mixins
   class Bird extends swimming with flying {
     def sound(): String = "Chirp..."
 

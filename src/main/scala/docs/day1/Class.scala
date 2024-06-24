@@ -1,4 +1,4 @@
-package docs
+package docs.day1
 
 object Class extends App {
   // class only have parameters, it doesn't contain return types

@@ -1,4 +1,4 @@
-package docs
+package docs.day2
 
 import scala.util.Random
 
@@ -47,7 +47,7 @@ object PatternMatching extends App {
 
   val someEmail = Email("Friend","Where are you?","")
   val someSMS = SMS("+1 2423 121","Are you there?")
-  val someVR = VoiceRecording("Sam","voicerecording.org/id/123")
+  val someVR = VoiceRecording("Sam","voice-recording.org/id/123")
 
   println(showNotification(someEmail)) // You got and email from Friend with title: Where are you?
   println(showNotification(someSMS)) // You got an SMS from +1 2423 121 with the message: Are you there?
