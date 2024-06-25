@@ -5,7 +5,7 @@ import scala.util.Random
 object PatternMatching extends App {
   /*
   Pattern matching in Scala is a powerful feature that allows you to match and
-  destructure data based on its shape and structure. It's often used with case
+  (destructure) data based on its shape and structure. It's often used with case
   classes, but it can also be applied to various other data types like tuples,
   lists, options, and even custom classes.
   */
@@ -32,7 +32,7 @@ object PatternMatching extends App {
 
   case class VoiceRecording(contactName: String, link: String) extends Notification
 
-  // In all the case classes we are extending the trait, that trait is used for pattern matching 
+  // In all the case classes we are extending the trait, that trait is used for pattern matching
   // as we can see the parameter in the method consist of Type Notification which is a trait
   def showNotification(notification: Notification): String = {
     notification match {
