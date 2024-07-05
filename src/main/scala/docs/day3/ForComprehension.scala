@@ -1,11 +1,15 @@
 package docs.day3
 
+import scala.util.{Failure, Success}
+
 object ForComprehension extends App {
   /*
   For-comprehension is a syntactic construct that allows you to iterate over collections
   (such as lists, arrays, or other sequences) and perform operations on their elements
   concisely. It combines elements of foreach loops, map, flatMap, and filter operations
   into a single readable syntax.
+
+  We can perform operations on monadic types like Option, List, Future, etc. using for-comprehension.
   */
 
   case class User(name: String, age: Int)
@@ -34,7 +38,7 @@ object ForComprehension extends App {
 
   foo(10,10).foreach {
     case(i,j) =>
-      println(s"($i, $j)") // prints (1, 9) (2, 8) (3, 7) (4, 6) (5, 5) (6, 4) (7, 3) (8, 2) (9, 1)
+      // println(s"($i, $j)") // prints (1, 9) (2, 8) (3, 7) (4, 6) (5, 5) (6, 4) (7, 3) (8, 2) (9, 1)
   }
   /*
   Here n == 10 and v == 10. On the first iteration, i == 0 and j == 0 so i + j != v and
@@ -55,5 +59,60 @@ object ForComprehension extends App {
     println(s"($i, $j)")
   }
 
-  anotherFoo(10,10) // prints (1, 9) (2, 8) (3, 7) (4, 6) (5, 5) (6, 4) (7, 3) (8, 2) (9, 1)
+  // anotherFoo(10,10) // prints (1, 9) (2, 8) (3, 7) (4, 6) (5, 5) (6, 4) (7, 3) (8, 2) (9, 1)
+
+  /*
+  monadic type - Option, List, Future, etc. - - can be used in a for-comprehension.
+   */
+
+  // For comprehension with -Option-
+  val person: Option[String] = Some("Alice")
+//  val person: Option[String] = None
+  val greeting = for {
+    name <- person
+  } yield s"Hello, $name"
+  println(greeting) // Some(Hello, Alice)
+
+  // For comprehension with -List-
+  val people = List("Alice, Bob, Charlie")
+  val greetings = for {
+    name <- people
+  } yield s"Hello, $name"
+  println(greetings) // List(Hello, Alice, Bob, Charlie)
+
+  // For comprehension with -Future-
+  import scala.concurrent.Future
+  import scala.concurrent.ExecutionContext.Implicits.global
+
+  val future1: Future[Int] = Future(54)
+  val future2: Future[Int] = Future(12)
+  val result = for {
+    a <- future1
+    b <- future2
+  } yield a + b
+  result.foreach(println) // 66
+
+  result.onComplete(println) // 66
+  result.onComplete {
+    case Success(value) => println(value)
+    case Failure(exeception) => println(exeception)
+  } // Success(66)
+
+  // For comprehension with List
+  val myList = List(1,2,3,4)
+  val square = for {
+    i <- myList
+  } yield i * i
+  println(square) // List(1,4,9,16)
+
+  // For comprehension with Map
+  val myMap = Map(
+    1 -> "One",
+    2 -> "Two",
+    3 -> "Three"
+  )
+  val getMap = for {
+    (key, value) <- myMap
+  } yield (value)
+  println(getMap) // List(One, Two, Three)
 }
