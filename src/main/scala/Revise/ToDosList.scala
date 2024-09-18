@@ -9,20 +9,28 @@ object ToDosList {
     var tasks = ListBuffer[Task]()
 
     def addTask(id: Int, description: String, isComplete: Boolean): Unit = {
-      println("Task Added")
-      tasks += Task(id, description, isComplete)
+      val task = Task(id, description, isComplete)
+      tasks += task
+      println(s"Added task $task")
     }
 
     def removeTask(id: Int): Unit = {
-      println("Task Removed")
+      val taskToRemove = tasks.find(_.id == id)
       tasks = tasks.filterNot(_.id == id)
+      taskToRemove match {
+        case Some(task) => println(s"Task Removed: $task")
+        case None => println(s"Task not found with id: $id")
+      }
     }
 
     def updateTask(id: Int, newDescription: String, newIsComplete: Boolean): Unit = {
-      println("Task Updated")
       val index = tasks.indexWhere(_.id == id)
       if (index != -1) {
+        val oldTask = tasks(index)
         tasks.update(index, Task(id, newDescription, newIsComplete))
+        println(s"Task Updated From $oldTask --> ${tasks(index)} ")
+      } else {
+        println(s"No task found with id: $id")
       }
     }
 
@@ -38,6 +46,7 @@ object ToDosList {
     TaskManager.displayTask()
     TaskManager.removeTask(1)
     TaskManager.addTask(3, "Do the Next Project", false)
+    TaskManager.updateTask(3, "Do the Next Project", true)
     TaskManager.displayTask()
   }
 }
