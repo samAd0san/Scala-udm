@@ -23,6 +23,11 @@ object ToDosList {
       }
     }
 
+    def removeAll(): Unit = {
+      tasks.clear()
+      println("All the tasks have been removed")
+    }
+
     def updateTask(id: Int, newDescription: String, newIsComplete: Boolean): Unit = {
       val index = tasks.indexWhere(_.id == id)
       if (index != -1) {
@@ -34,9 +39,25 @@ object ToDosList {
       }
     }
 
+    def updatePartially(id: Int, newDescription: Option[String] = None, newIsComplete: Option[Boolean] = None): Unit = {
+      val index = tasks.indexWhere(_.id == id)
+      if (index != -1) {
+        val oldTask = tasks(index)
+        tasks.update(index, oldTask.copy(
+          description = newDescription.getOrElse(oldTask.description),
+          isComplete = newIsComplete.getOrElse(oldTask.isComplete)
+        ))
+        println(s"Task Updated From $oldTask --> ${tasks(index)} ")
+      }
+    }
+
     def displayTask(): Unit = {
-      println("Printing all the tasks")
-      tasks.foreach(println)
+      if (tasks.isEmpty) {
+        println("There are no tasks")
+      } else {
+        println("Printing all the tasks")
+        tasks.foreach(println)
+      }
     }
   }
 
@@ -44,9 +65,15 @@ object ToDosList {
     TaskManager.addTask(1, "Complete the chores before 10AM", false)
     TaskManager.addTask(2, "Learn Scala", true)
     TaskManager.displayTask()
+
     TaskManager.removeTask(1)
+
     TaskManager.addTask(3, "Do the Next Project", false)
     TaskManager.updateTask(3, "Do the Next Project", true)
+    TaskManager.updatePartially(2, newIsComplete = Some(false))
+
+    TaskManager.displayTask()
+    TaskManager.removeAll()
     TaskManager.displayTask()
   }
 }
