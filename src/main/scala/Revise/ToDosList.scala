@@ -1,6 +1,10 @@
 package Revise
-
 import scala.collection.mutable.ListBuffer
+/*
+To-Do List Manager
+Concepts: Classes, objects, methods, collections (Lists, Sets, Maps), exception handling.
+Task: Build a simple to-do list application where users can add, remove, and mark tasks as complete.
+ */
 
 object ToDosList {
   case class Task(var id: Int, var description: String, var isComplete: Boolean)
@@ -94,7 +98,7 @@ object ToDosList {
     TaskManager.displayTask()
 
     TaskManager.addTask(-3, description = "Go to pray", isComplete = false)
-    TaskManager.addTask(5,description = "", false)
+    TaskManager.addTask(5, description = "", false)
 
     TaskManager.removeTask(29)
   }
