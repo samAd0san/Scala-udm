@@ -3,6 +3,12 @@ package Revise
 import scala.io.Source
 import scala.io.Source.*
 
+/** 
+ * Student Grading System: 
+ * Concepts: Collections (List, Map), case classes, pattern matching, file handling, Option/Some/None.
+ * Task: Create a system to read student grades from a file, calculate averages, and assign letter grades.
+ * */
+
 object StudentMarks {
   case class Student(name: String, grades: List[Int])
 
@@ -12,13 +18,26 @@ object StudentMarks {
       val source = Source.fromFile(filePath)
 
       try {
-        // Read each line, split by commas, and create Student objects
-        source.getLines().toList.map { //  reads lines from the file as an iterator, converts them to a list of strings, and processes each line with the provided code block using the map function.
-          line =>
-            val parts = line.split(",").map(_.trim) // parts = Array("Alice", "85", "90", "78")
-            val name = parts(0) // name = "Alice"
-            val grades = parts.drop(1).map(_.toInt).toList // grades = List(85, 90, 78)
-            Student(name, grades) // Student("Alice", List(85, 90, 78))
+        source.getLines().toList.flatMap { line =>
+          // Split the line and trim whitespace
+          val parts = line.split(",").map(_.trim)
+
+          // Check if there are at least 2 parts (name + at least one grade)
+          if (parts.length < 2) {
+            println(s"Invalid line format: '$line'. Expected format: 'Name, Grade1, Grade2, ...'")
+            None // Skip this line
+          } else {
+            val name = parts(0) // First part is the student name
+            try {
+              // Parse grades and handle any parsing errors
+              val grades = parts.drop(1).map(_.toInt).toList
+              Some(Student(name, grades)) // Wrap in Some for successful parsing
+            } catch {
+              case e: NumberFormatException =>
+                println(s"Error parsing grades for student '$name': ${e.getMessage}")
+                None
+            }
+          }
         }
       } finally {
         source.close()
@@ -55,3 +74,13 @@ object StudentMarks {
     DisplayMarks.displayStudentsDetail(studentMarks)
   }
 }
+
+/**
+ * Invalid line format: 'adfsafds'. Expected format: 'Name, Grade1, Grade2, ...'
+ * Student Alice, Average: 84.0, Grade: B
+ * Student Bob, Average: 83.0, Grade: B
+ * Student Charlie, Average: 62.0, Grade: D
+ * Student Logan, Average: 75.0, Grade: C
+ *
+ * Process finished with exit code 0
+ */
