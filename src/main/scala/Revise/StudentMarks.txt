@@ -1,0 +1,5 @@
+Alice, 85, 90, 78
+Bob, 70, 88, 92
+Charlie, 60, 62, 65
+Logan, 90, 70, 65
+adfsafds
